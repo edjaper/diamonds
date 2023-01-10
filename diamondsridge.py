@@ -23,6 +23,10 @@ model = Ridge()
 model = skljson.from_json('rr_model.json')
 
 
+option = st.selectbox(
+    'Which color do you like best?',
+     diamonds['color'].unique())
+'You selected: ', option
 
 if st.checkbox('Show dataframe'):
     st.write(diamonds)
