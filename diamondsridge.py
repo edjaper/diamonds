@@ -28,5 +28,9 @@ option = st.selectbox(
      diamonds['color'].unique())
 'You selected: ', option
 
+options = st.multiselect(
+ 'What are your favorite colors?', diamonds['color'].unique())
+st.write('You selected:', options)
+
 if st.checkbox('Show dataframe'):
     st.write(diamonds)
