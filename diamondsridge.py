@@ -23,14 +23,16 @@ model = Ridge()
 model = skljson.from_json('rr_model.json')
 
 
-option = st.selectbox(
-    'Which color do you like best?',
-     diamonds['color'].unique())
-'You selected: ', option
+clarity = st.selectbox( 'Which clarity do you like best?', diamonds['clarity'].unique()) 
+'You selected clarity: ', clarity
 
-options = st.multiselect(
- 'What are your favorite colors?', diamonds['color'].unique())
-st.write('You selected:', options)
+clubs = st.multiselect('Show Player for clubs?', df['Club'].unique())
+
+colors = st.multiselect('What are your favorite colors?', diamonds['color'].unique())
+st.write('You selected colors:', colors)
 
 if st.checkbox('Show dataframe'):
     st.write(diamonds)
+
+    
+    
