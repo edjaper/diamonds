@@ -9,7 +9,7 @@ import lime.lime_tabular
 import numpy as np
 
 
-diamonds = pd.read_csv("diamonds.csv", sep=";", decimal=".")
+diamonds = st.cache(pd.read_csv("diamonds.csv", sep=";", decimal=".")
 feedback = pd.read_csv("feedback.csv", sep=";")
 
 
