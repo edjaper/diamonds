@@ -26,7 +26,6 @@ model = skljson.from_json('rr_model.json')
 clarity = st.selectbox( 'Which clarity do you like best?', diamonds['clarity'].unique()) 
 'You selected clarity: ', clarity
 
-clubs = st.multiselect('Show Player for clubs?', df['Club'].unique())
 
 colors = st.multiselect('What are your favorite colors?', diamonds['color'].unique())
 st.write('You selected colors:', colors)
