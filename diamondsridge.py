@@ -31,7 +31,8 @@ colors = st.multiselect('What are your favorite colors?', diamonds['color'].uniq
 st.write('You selected colors:', colors)
 
 # Filter dataframe
-new_df = diamonds[(diamonds['clarity'])]
+#new_df = diamonds[(diamonds['clarity'].isin(clarity)) & (diamonds['color'].isin(colors))]
+new_df = diamonds.copy()
 # write dataframe to screen
 st.write(new_df)
 
