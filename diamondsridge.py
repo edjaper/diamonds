@@ -29,6 +29,7 @@ clarity = st.selectbox( 'Which clarity do you like best?', diamonds['clarity'].u
 
 colors = st.multiselect('What are your favorite colors?', diamonds['color'].unique())
 st.write('You selected colors:', colors)
+st.write('You selected colors:', type((colors))
 
 # Filter dataframe
 #new_df = diamonds[(diamonds['clarity'].isin(clarity)) & (diamonds['color'].isin(colors))]
