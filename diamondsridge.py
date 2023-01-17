@@ -18,7 +18,6 @@ def onSave(a, b):
 
 
     
-    
 id = st.selectbox( 'Which clarity do you like best?', df['id'].unique()) 
 'You selected clarity: ', id
 st.write(df.iloc[[id], :])
