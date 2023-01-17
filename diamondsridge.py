@@ -15,7 +15,7 @@ df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv
 
 id = st.selectbox( 'Which clarity do you like best?', df['id'].unique()) 
 'You selected clarity: ', id
-st.write(df[id])
+st.write(df.iloc[id, :])
 
 
 #if st.checkbox('Show dataframe'):
