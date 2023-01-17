@@ -25,7 +25,7 @@ st.write(df.iloc[[id], :])
 #if st.checkbox('Show dataframe'):
 #    st.write(diamonds)
 
-texto = str(feedback.loc[id, 'feedback'])
+texto = str(feedback.iloc[id, 1])
 'Texto: ', texto
 
 if (texto=="nan"):
