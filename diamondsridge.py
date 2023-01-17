@@ -18,6 +18,9 @@ st.write(df.iloc[[id], :])
 texto = str(feedback.loc[id, 'feedback'])
 'texto: ', texto
 
+if (texto=="nan"):
+    texto=""
+
 txt = st.text_area('Feedback', value=texto)
 
     
