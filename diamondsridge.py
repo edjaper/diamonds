@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
-feedback = st.cache(pd.read_csv, ttl=2)('feedback.csv', sep=';;#,;', decimal='.')
+feedback = st.cache(pd.read_csv, ttl=300)('feedback.csv', sep=';;#,;', decimal='.')
 
 #if "feedback" not in st.session_state:
 #    st.session_state['feedback'] = pd.DataFrame(columns=['id','feedback'])
@@ -15,7 +15,10 @@ def onSave(a, b):
             'id':a,
             'feedback':b
         }
+    df_feedback_save = feedback.copy()
+    df_feedback_save.loc[a, 'feedback'] = b
     #st.session_state['feedback'] = st.session_state['feedback'].append(data, ignore_index=True)
+    open('feedback.csv', 'w').write(df_feedback_save.to_csv())
 
 
     
