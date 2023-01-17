@@ -21,7 +21,7 @@ texto = str(feedback.loc[id, 'feedback'])
 if (texto=="nan"):
     texto=""
 
-txt = st.text_area('Feedback', value=texto)
-
+#txt = st.text_area('Feedback', value=texto)
+txt = st.text_input('Feedback', value=texto)
     
     
