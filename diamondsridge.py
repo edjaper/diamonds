@@ -15,7 +15,7 @@ def onSave(a, b):
             'id':a,
             'feedback':b
         }
-    st.session_state['feedback'] = st.session_state['feedback'].append(data, ignore_index=True)
+    #st.session_state['feedback'] = st.session_state['feedback'].append(data, ignore_index=True)
 
 
     
