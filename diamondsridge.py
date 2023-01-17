@@ -15,7 +15,7 @@ st.write(df.iloc[[id], :])
 #if st.checkbox('Show dataframe'):
 #    st.write(diamonds)
 
-texto = feedback.loc[id, feedback]
+texto = feedback.loc[id, 'feedback']
 txt = st.text_area('Feedback', value=texto)
 
     
