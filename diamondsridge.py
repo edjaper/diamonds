@@ -16,12 +16,10 @@ st.write(df.iloc[[id], :])
 #    st.write(diamonds)
 
 texto = str(feedback.loc[id, 'feedback'])
-'texto: ', texto
+'Texto: ', texto
 
 if (texto=="nan"):
     texto=""
 
 #txt = st.text_area('Feedback', value=texto)
 txt = st.text_input('Feedback', value=texto)
-    
-    
