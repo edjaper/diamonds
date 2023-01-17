@@ -11,10 +11,6 @@ feedback = st.cache(pd.read_csv, ttl=300)('feedback.csv', sep=';;#,;', decimal='
 
 
 def onSave(a, b):
-    data = {
-            'id':a,
-            'feedback':b
-        }
     df_feedback_save = feedback.copy()
     df_feedback_save.loc[a, 'feedback'] = b
     #st.session_state['feedback'] = st.session_state['feedback'].append(data, ignore_index=True)
