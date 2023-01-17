@@ -36,4 +36,4 @@ if (texto=="nan"):
 txt = st.text_area('Feedback', value=texto)
 txt = st.text_input('Feedback', value=texto)
 
-st.button("Salvar", on_click = onSave(id, txt)
+st.button("Salvar", on_click = onSave(id, txt))
