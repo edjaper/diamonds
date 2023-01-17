@@ -1,4 +1,4 @@
-import streamlit as st
+aimport streamlit as st
 import pandas as pd
 import numpy as np
 
@@ -16,7 +16,7 @@ st.write(df.iloc[[id], :])
 #    st.write(diamonds)
 
 texto = feedback.loc[id, 'feedback']
-if (texto=="nan"):
+if (texto=="example"):
     texto=""
 
 txt = st.text_area('Feedback', value=texto)
