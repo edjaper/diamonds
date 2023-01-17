@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
-feedback = st.cache(pd.read_csv, ttl=300)('feedback.csv', sep=';;#,;', decimal='.')
+df = st.cache(pd.read_csv, ttl=300)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
+feedback = st.cache(pd.read_csv)('feedback.csv', sep=';;#,;', decimal='.')
 
 #if "feedback" not in st.session_state:
 #    st.session_state['feedback'] = pd.DataFrame(columns=['id','feedback'])
@@ -32,7 +32,7 @@ texto = str(feedback.loc[id, 'feedback'])
 if (texto=="nan"):
     texto=""
 
-txt = st.text_area('Feedback', value=texto)
+#txt = st.text_area('Feedback', value=texto)
 txt = st.text_input('Feedback', value=texto)
 
 st.button("Salvar", on_click = onSave(id, txt))
