@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
-feedback = st.cache(pd.read_csv)('feedback.csv', sep=';', decimal='.')
+feedback = st.cache(pd.read_csv)('feedback.csv', sep=';;#,;', decimal='.')
 
 #if "feedback" not in st.session_state:
 #    st.session_state['feedback'] = pd.DataFrame(columns=['id','feedback'])
