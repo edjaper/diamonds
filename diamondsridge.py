@@ -13,7 +13,7 @@ sheet_url = "https://docs.google.com/spreadsheets/d/11QZjVGnbT3y7enxDc4IWCLcxy2g
 
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 10 min.
-@st.cache(ttl=300)
+@st.cache(ttl=1)
 def run_query(query):
     rows = conn.execute(query, headers=1)
     rows = rows.fetchall()
