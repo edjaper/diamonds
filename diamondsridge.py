@@ -26,6 +26,10 @@ def onClick(a):
     for row in rows:
         if( int(row.id)==int(a)):
             st.write(int(row.id), row.feedback)
+            texto = str(row.feedback)
+            if (texto=="nan"):
+                texto=""
+            st.text_area('Feedback', value=texto)   
   
 id = st.selectbox( 'Which clarity do you like best?', df['id'].unique()) 
 'You selected clarity: ', id
