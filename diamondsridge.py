@@ -20,7 +20,15 @@ def run_query(query):
     return rows
 
 
-
+def onClick(a):
+    rows = run_query(f'SELECT * FROM "{sheet_url}"')
+    for row in rows:
+        if( int(row.id)==int(a)):
+            #st.write(int(row.id), row.feedback)
+            texto = str(row.feedback)
+            if (texto=="nan"):
+                texto=""
+            st.text_area('Feedback', value=texto)   
 
   
 id = st.selectbox( 'Which clarity do you like best?', df['id'].unique()) 
@@ -40,12 +48,4 @@ st.button("Carregar comentário da planilha", on_click = onClick(id))
 #txt = st.text_area('Feedback', value=texto)
 #txt = st.text_input('Feedback', value=texto)
 
-def onClick(a):
-    rows = run_query(f'SELECT * FROM "{sheet_url}"')
-    for row in rows:
-        if( int(row.id)==int(a)):
-            st.write(int(row.id), row.feedback)
-            texto = str(row.feedback)
-            if (texto=="nan"):
-                texto=""
-            st.text_area('Feedback', value=texto)   
+
