@@ -8,8 +8,8 @@ df = st.cache(pd.read_csv, ttl=300)('df_x_SKBfregression_545noADME_withYandYpred
 
 # Create a connection object.
 conn = connect()
-public_gsheets_url = "https://docs.google.com/spreadsheets/d/11QZjVGnbT3y7enxDc4IWCLcxy2gGpVQAfFoN8r3ytRM/edit#gid=0"
-sheet_url = st.secrets[public_gsheets_url]
+sheet_url = "https://docs.google.com/spreadsheets/d/11QZjVGnbT3y7enxDc4IWCLcxy2gGpVQAfFoN8r3ytRM/edit#gid=0"
+#sheet_url = st.secrets[public_gsheets_url]
 
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 10 min.
