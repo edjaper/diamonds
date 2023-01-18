@@ -1,6 +1,4 @@
-sklearn_json
-sklearn
+
 pandas
 numpy
-lime
-gsheetsdb==x.x.x
+gsheetsdb
