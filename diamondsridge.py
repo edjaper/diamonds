@@ -8,6 +8,9 @@ df = st.cache(pd.read_csv, ttl=300)('df_x_SKBfregression_545noADME_withYandYpred
 
 # Create a connection object.
 conn = connect()
+public_gsheets_url = "https://docs.google.com/spreadsheets/d/11QZjVGnbT3y7enxDc4IWCLcxy2gGpVQAfFoN8r3ytRM/edit#gid=0"
+sheet_url = st.secrets[public_gsheets_url]
+
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 10 min.
 @st.cache(ttl=300)
@@ -15,14 +18,14 @@ def run_query(query):
     rows = conn.execute(query, headers=1)
     rows = rows.fetchall()
     return rows
-sheet_url = st.secrets["public_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
-def onSave(a, b):
-    df_feedback_save = feedback.copy()
-    df_feedback_save.loc[a, 'feedback'] = b
-    #st.session_state['feedback'] = st.session_state['feedback'].append(data, ignore_index=True)
-    open('feedback.csv', 'w').write(df_feedback_save.to_csv())
+
+
+def onClick(a):
+    rows = run_query(f'SELECT * FROM "{sheet_url}"')
+    for row in rows:
+        if( int(row.id)==int(a)):
+        print(int(row.id), row.feedback)
   
 id = st.selectbox( 'Which clarity do you like best?', df['id'].unique()) 
 'You selected clarity: ', id
@@ -30,19 +33,14 @@ st.write(df.iloc[[id], :])
 
 #if st.checkbox('Show dataframe'):
 #    st.write(diamonds)
+st.button("Carregar comentário da planilha", on_click = onClick(id))
 
-texto = str(feedback.iloc[id, 1])
-'Texto: ', texto
+#texto = str(feedback.iloc[id, 1])
+#'Texto: ', texto
 
-if (texto=="nan"):
-    texto=""
+#if (texto=="nan"):
+#    texto=""
 
 #txt = st.text_area('Feedback', value=texto)
-txt = st.text_input('Feedback', value=texto)
+#txt = st.text_input('Feedback', value=texto)
 
-#st.button("Salvar", on_click = onSave(id, txt))
-
-# Print results.
-for row in rows:
-  if( int(row.id)==int(id)):
-    print(int(row.id), row.feedback)
