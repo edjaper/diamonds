@@ -28,7 +28,7 @@ def onClick(a):
             texto = str(row.feedback)
             if (texto=="nan" or texto=="None"):
                 texto=""
-            st.text_area('Clique no botão Refresh para buscar dados da planilha de comentários', value=texto)   
+            st.text_area('Clique no botão abaixo para buscar dados da planilha de comentários', value=texto)   
 
   
 id = st.selectbox( 'Selecione o identificador da modlécula', df['id'].unique()) 
@@ -37,7 +37,7 @@ st.write(df.iloc[[id], :])
 
 #if st.checkbox('Show dataframe'):
 #    st.write(diamonds)
-st.button("Carregar comentário da planilha", on_click = onClick(id))
+st.button("Buscar comentário atualizado da planilha", on_click = onClick(id))
 
 #texto = str(feedback.iloc[id, 1])
 #'Texto: ', texto
