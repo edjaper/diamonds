@@ -25,7 +25,7 @@ def onClick(a):
     rows = run_query(f'SELECT * FROM "{sheet_url}"')
     for row in rows:
         if( int(row.id)==int(a)):
-        st.write(int(row.id), row.feedback)
+            st.write(int(row.id), row.feedback)
   
 id = st.selectbox( 'Which clarity do you like best?', df['id'].unique()) 
 'You selected clarity: ', id
