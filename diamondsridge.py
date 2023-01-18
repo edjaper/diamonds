@@ -23,9 +23,7 @@ def onSave(a, b):
     df_feedback_save.loc[a, 'feedback'] = b
     #st.session_state['feedback'] = st.session_state['feedback'].append(data, ignore_index=True)
     open('feedback.csv', 'w').write(df_feedback_save.to_csv())
-
-
-    
+  
 id = st.selectbox( 'Which clarity do you like best?', df['id'].unique()) 
 'You selected clarity: ', id
 st.write(df.iloc[[id], :])
