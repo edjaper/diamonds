@@ -26,7 +26,7 @@ def onClick(a):
         if( int(row.id)==int(a)):
             #st.write(int(row.id), row.feedback)
             texto = str(row.feedback)
-            if (texto=="nan"):
+            if (texto=="nan" or texto=="None"):
                 texto=""
             st.text_area('Feedback', value=texto)   
 
