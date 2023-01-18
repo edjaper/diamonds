@@ -4,10 +4,7 @@ import numpy as np
 from gsheetsdb import connect
 
 df = st.cache(pd.read_csv, ttl=300)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
-feedback = st.cache(pd.read_csv)('feedback.csv', sep=';;#,;', decimal='.')
 
-#if "feedback" not in st.session_state:
-#    st.session_state['feedback'] = pd.DataFrame(columns=['id','feedback'])
 
 # Create a connection object.
 conn = connect()
@@ -45,8 +42,9 @@ if (texto=="nan"):
 #txt = st.text_area('Feedback', value=texto)
 txt = st.text_input('Feedback', value=texto)
 
-st.button("Salvar", on_click = onSave(id, txt))
+#st.button("Salvar", on_click = onSave(id, txt))
 
 # Print results.
 for row in rows:
-    st.write(f"{row.name} has a :{row.pet}:")
+  if( int(row.id)==int(id)):
+    print(int(row.id), row.feedback)
