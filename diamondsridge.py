@@ -28,11 +28,11 @@ def onClick(a):
             texto = str(row.feedback)
             if (texto=="nan" or texto=="None"):
                 texto=""
-            st.text_area('Feedback', value=texto)   
+            st.text_area('Clique no botão Refresh para buscar dados da planilha de comentários', value=texto)   
 
   
-id = st.selectbox( 'Which clarity do you like best?', df['id'].unique()) 
-'You selected clarity: ', id
+id = st.selectbox( 'Selecione o identificador da modlécula', df['id'].unique()) 
+'Você selecionou: ', id
 st.write(df.iloc[[id], :])
 
 #if st.checkbox('Show dataframe'):
